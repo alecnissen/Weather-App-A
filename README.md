@@ -1,5 +1,1 @@
-## Template repo
-
-Contains configurations for eslint, prettier, babel and other tools I enjoy using.
-
-https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template
+Creating a Weather App as part of TOP course. Practice fetching data from API's and writing async JS code.
