@@ -1,7 +1,7 @@
-console.log('TEE');
-console.log("asdfsdf"); 
-console.log("TESTING!");
-console.log("using template repo"); 
+// console.log('TEE');
+// console.log("asdfsdf"); 
+// console.log("TESTING!");
+// console.log("using template repo"); 
 
 
 // write a function that can return weather data for that location 
@@ -84,6 +84,33 @@ console.log("using template repo");
 
 // and see if you can append the JSON data, and the right info to the DOM 
 
+// try to make another function which will key into data 
+
+// and just display current forcast, 
+
+// confirm on discord that my approach so far is ok, 
+
+// async function which fetches specific city data, turns into jSON, 
+
+// then passes that JSON data to a function which will print the weather to the DOM. 
+
+// currently is my approach ok, next I was just going to make locations in the body 
+
+// where I can append the data, then style. 
+
+// next I made a section/card that I start appending the current weather data to 
+
+// append the current weather data, 
+
+// see if you can fetch the img/icon, 
+
+// icon first, then weather description, 
+
+// all in a column, 
+
+// ok not sure how to import imgs, 
+
+// lets try to fetch and display all other data to the DOM, 
 
 
 let searchBox = document.getElementById('search-box'); 
@@ -94,20 +121,83 @@ console.log(searchBtn);
 
 console.log(searchBox);
 
-
 async function fetchData(input) { 
     let cityData = input; 
     console.log('The data passed in is: ' + cityData);
     const getData = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=45464da38892450d95f10433230506 &q=${cityData}&days=5&aqi=no&alerts=no`);
     const jsonData = await getData.json();
-    // const keyInData = jsonData.data
-    console.log(jsonData.current.condition.text); 
-    // console.log(jsonData.current.condition.text); 
+    console.log(jsonData); 
+    // let currentWeatherData = jsonData.current.condition.text; 
+    let currentWeatherData = jsonData;
+    // console.log(currentWeatherData);
+   displayCurrentWeather(currentWeatherData);
+
 } 
 
-// fetchData();
+// get city name, temp, feels like, humidity, wind speed
+// key into each variable then append. 
 
-// searchBtn.addEventListener('click', fetchData()); 
+// let weatherContainer = document.getElementById('current-weather-container');
+
+async function displayCurrentWeather(weather) { 
+    // clear DOM, replaceChildren before appending new
+    
+
+    let currentForecast = await weather; 
+
+    // console.log(currentForecast.location) 
+
+    let locationData = currentForecast.location.name;
+
+    let weatherDescriptionData = currentForecast.current.condition.text; 
+
+    let currentWeatherNumberData = currentForecast.current.feelslike_f;
+
+    let windData = currentForecast.current.wind_mph;
+
+    let windDirection = currentForecast.current.wind_dir;
+
+    let rainInches = currentForecast.current.precip_in; 
+
+    let humidityLevel = currentForecast.current.humidity;
+
+    console.log(humidityLevel);
+
+   //  console.log(locationData);
+
+   //  document.body.append(currentForecast);
+
+   let currentWeatherLocationText = document.getElementById('current-weather-location-p'); 
+
+   // currentWeatherLocationText.replaceChildren();
+
+   currentWeatherLocationText.append(locationData);
+
+   let currentWeatherDescriptionText = document.getElementById('current-weather-description-p'); 
+
+   currentWeatherDescriptionText.append(weatherDescriptionData); 
+
+   let currentWeatherTempData = document.getElementById('current-weather-temp-data'); 
+
+   currentWeatherTempData.append(currentWeatherNumberData);
+
+   let currentWeatherWindData = document.getElementById('current-weather-wind-data'); 
+
+   currentWeatherWindData.append(windData);
+
+   let currentWeatherWindDirection = document.getElementById('current-weather-wind-direction-data');
+
+   currentWeatherWindDirection.append(windDirection);
+
+   let currentWeatherRain = document.getElementById('current-weather-rain-inches-data');
+
+   currentWeatherRain.append(rainInches);
+
+   let currentHumidityLevel = document.getElementById('current-weather-humidity-data'); 
+
+   currentHumidityLevel.append(humidityLevel);
+
+}
 
 searchBtn.addEventListener('click', (e) => { 
     // console.log(searchBox.value); 
