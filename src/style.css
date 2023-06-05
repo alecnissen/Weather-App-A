@@ -1,0 +1,42 @@
+/* body { 
+    background-color: ;
+} */
+
+* { 
+    box-sizing: border-box;
+    padding: 0; 
+    margin: 0;
+}
+
+.header-container { 
+  background-color: blue;
+  text-align: center;
+  height: 12vh;
+  gap: 1em; 
+
+} 
+
+.h1-header-styles { 
+    color: white; 
+    font-size: 2.8rem;
+    font-weight: bold;
+}
+
+.search-bar-elements-container { 
+    display: flex;
+    justify-content: flex-end;
+    gap: 1em; 
+    
+} 
+
+.search-bar-elements-container > input { 
+    font-size: 1rem;
+} 
+
+.search-bar-elements-container > button { 
+    font-size: 1rem;
+    background-color: blue;
+    color: white; 
+    border: 2px solid black;
+    font-weight: bold;
+}
