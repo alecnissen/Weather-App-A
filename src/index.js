@@ -56,20 +56,82 @@ console.log("using template repo");
 
 // have the header container, display flex, but apply another container around the right elements 
 
+// OK we have the basic header markup and styling, 
+
+// now step 2, write a function which takez location and returns the weather info 
+
+// use variable, return weather for specific location, 
+
+// Write the functions that hit the API. You’re going to want functions that can take a location and return the weather data for that location. 
+
+// made a variable search box, 
+
+// what I want is to get city specific weather data, based on input data, and when the presses submit/search, 
+
+// make an event listener, 
+
+// call a callback function which fetches data based on location/variable, 
+
+// const getData = await fetch('http://api.weatherapi.com/v1/forecast.json?key=45464da38892450d95f10433230506 &q=philadelphia&days=5&aqi=no&alerts=no');
+
+// I am able to get weather data back, my function 
+
+// processes the JSON data as well 
+
+// I am able to key into the current weather, 
+
+// commit changes, add a little css for current weather, 
+
+// and see if you can append the JSON data, and the right info to the DOM 
 
 
-async function fetchData() { 
-    const getData = await fetch('http://api.weatherapi.com/v1/forecast.json?key=45464da38892450d95f10433230506 &q=lansdale&days=5&aqi=no&alerts=no');
+
+let searchBox = document.getElementById('search-box'); 
+
+let searchBtn = document.getElementById('search-btn'); 
+
+console.log(searchBtn);
+
+console.log(searchBox);
+
+
+async function fetchData(input) { 
+    let cityData = input; 
+    console.log('The data passed in is: ' + cityData);
+    const getData = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=45464da38892450d95f10433230506 &q=${cityData}&days=5&aqi=no&alerts=no`);
     const jsonData = await getData.json();
     // const keyInData = jsonData.data
-     console.log(jsonData); 
+    console.log(jsonData.current.condition.text); 
+    // console.log(jsonData.current.condition.text); 
 } 
 
-fetchData();
+// fetchData();
+
+// searchBtn.addEventListener('click', fetchData()); 
+
+searchBtn.addEventListener('click', (e) => { 
+    // console.log(searchBox.value); 
+    let inputValue = searchBox.value;
+
+    console.log(inputValue);
+
+    fetchData(inputValue);
+});
 
 
+// Ok we need to capture the input value from the box, 
 
-// let searchBox = document.getElementById('search-box'); 
+// capture value once user presses search btn 
+
+// that value will be passed to fetchData function, 
+
+// which will return specific weather info 
+
+// function will take in a value, value will get re-assinged 
+
+// then put inside the URL for specific location, 
+
+
 
 // console.log(searchBox);
 
