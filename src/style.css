@@ -67,11 +67,40 @@ body {
     background-color: rgb(177, 172, 172);
 } 
 
-#forecast-container { 
+#forecast-3-day-title { 
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    text-decoration: underline;
+    margin-top: 0.5em;
+}
+
+
+#forecast-day-1-card, 
+#forecast-day-2-card, 
+#forecast-day-3-card { 
+    /* width: 250px; 
+    height: 250px; */
+    height: 35vh;
+    width: 20vw;
+    background-color: rgb(177, 172, 172);
+    border-radius: 10%;
+    text-align: center;
+} 
+
+#forecast-days-container { 
+    display: flex;
+    justify-content: center;
+    gap: 2em; 
+    margin-top: 0.5em;
+}
+
+
+/* #forecast-container { 
     text-align: center;
     font-size: 2rem;
     font-weight: bold;
     text-decoration: underline;
 
-}
+} */
 

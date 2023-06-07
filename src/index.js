@@ -170,14 +170,11 @@ async function displayCurrentWeather(weather) {
 
     // 3 day forecast, including icon 
 
-    // high low temp 
-
     // date 
 
+    // high low temp 
+
     // chance of rain, chance of snow, UV Index 
-
-
-
 
     let newImg = new Image();
 
@@ -280,3 +277,23 @@ searchBtn.addEventListener('click', (e) => {
 // find a way or write a function that can changed f data to c 
 
 // style up and done, 
+
+// We know what we need to do, first I would get the correct 
+
+// forecast data and append in the correct spot, 
+
+// then fix the current weather to use DOM displayed text, 
+
+// along with attaching the icon, 
+
+// start there, first lets find the correct forecast for the 3 day, 
+
+// ok lets first go the HTML, nad make the markup, 
+
+// we will need a container, 
+
+// that can hold 3 cards, displayed in flex so they are in a row, 
+
+// append the values to the specific input fields, 
+
+// 
