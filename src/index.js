@@ -112,6 +112,7 @@
 
 // lets try to fetch and display all other data to the DOM, 
 
+// import '../src/styles.scss'; 
 
 let searchBox = document.getElementById('search-box'); 
 
@@ -126,7 +127,7 @@ async function fetchData(input) {
     console.log('The data passed in is: ' + cityData);
     const getData = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=45464da38892450d95f10433230506 &q=${cityData}&days=5&aqi=no&alerts=no`);
     const jsonData = await getData.json();
-    console.log(jsonData); 
+    // console.log(jsonData); 
     // let currentWeatherData = jsonData.current.condition.text; 
     let currentWeatherData = jsonData;
     // console.log(currentWeatherData);
@@ -161,7 +162,30 @@ async function displayCurrentWeather(weather) {
 
     let humidityLevel = currentForecast.current.humidity;
 
-    console.log(humidityLevel);
+    let x = currentForecast.forecast.forecastday[0].day; 
+
+    console.log(x); 
+
+    // get what data and find what data you need forthe 
+
+    // 3 day forecast, including icon 
+
+    // high low temp 
+
+    // date 
+
+    // chance of rain, chance of snow, UV Index 
+
+
+
+
+    let newImg = new Image();
+
+    newImg.src = currentForecast.current.condition.icon;
+
+    document.body.append(newImg);
+
+    // console.log(humidityLevel);
 
    //  console.log(locationData);
 
@@ -209,29 +233,50 @@ searchBtn.addEventListener('click', (e) => {
 });
 
 
-// Ok we need to capture the input value from the box, 
+// So I like waves project look, next I Will figure out a way 
 
-// capture value once user presses search btn 
+// next I will get the 3 day forecast, 
 
-// that value will be passed to fetchData function, 
+// I assume it would be the same process fetch the data 
 
-// which will return specific weather info 
+// key into the value the current forecast 
 
-// function will take in a value, value will get re-assinged 
+// I think I also need to write a function, 
 
-// then put inside the URL for specific location, 
+// that will display the three day forecast, 
 
+// pass the weather data to that you got from the fetch data function 
 
+// to the other function which will just display forecast weahter 
 
-// console.log(searchBox);
+// for 3 days, 
 
-// searchBox.addEventListener('input', (e) => { 
-//     // let cityData = e.target.value; 
+// project, 3 day forecast, 
 
-//     // console.log(cityData);
-//      fetch(`http://api.weatherapi.com/v1/forecast.json?key=45464da38892450d95f10433230506 &q=${searchBox.value}&days=5&aqi=no&alerts=no`)
-//      .then(function(response) {
-//         // return response.json();
-//         console.log(response.json());
-//      })
-// })
+// toggle celius and f 
+
+// find way to clear DOM before adding new values, no adding on 
+
+// a way to import icons and get the correct path 
+
+// icons seems to working!! 
+
+// make the weather description elements appear with the DOM, 
+
+// instead of the html, 
+
+// find a way now to key into and get forecast 
+
+// next step is to key into data, and get the forecast 
+
+// key into certain days, make a HTML card, 
+
+// append the data to the card, along with logos for the weather, 
+
+// then instead of HTML Messages, use DOM plus append data 
+
+// once current and 3 day forecast is set, 
+
+// find a way or write a function that can changed f data to c 
+
+// style up and done, 
