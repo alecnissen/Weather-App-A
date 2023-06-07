@@ -137,12 +137,14 @@ async function fetchData(input) {
 
    addWeatherForecast2(currentWeatherData);
 
+   addWeatherForecast3(currentWeatherData);
+
 } 
 
 // get city name, temp, feels like, humidity, wind speed
 // key into each variable then append. 
 
-// let weatherContainer = document.getElementById('current-weather-container');
+ let weatherContainer = document.getElementById('current-weather-container');
 
 async function displayCurrentWeather(weather) { 
     // clear DOM, replaceChildren before appending new
@@ -202,31 +204,31 @@ async function displayCurrentWeather(weather) {
 
    // currentWeatherLocationText.replaceChildren();
 
-   currentWeatherLocationText.append(locationData);
+   currentWeatherLocationText.textContent = `Location: ${locationData}`;
 
    let currentWeatherDescriptionText = document.getElementById('current-weather-description-p'); 
 
-   currentWeatherDescriptionText.append(weatherDescriptionData); 
+   currentWeatherDescriptionText.textContent = `Conditions: ${weatherDescriptionData}`
 
    let currentWeatherTempData = document.getElementById('current-weather-temp-data'); 
 
-   currentWeatherTempData.append(currentWeatherNumberData);
+   currentWeatherTempData.textContent = `Temprature is: ${currentWeatherNumberData} F`;
 
    let currentWeatherWindData = document.getElementById('current-weather-wind-data'); 
 
-   currentWeatherWindData.append(windData);
+   currentWeatherWindData.textContent = `Wind Speed: ${windData} mph`;
 
    let currentWeatherWindDirection = document.getElementById('current-weather-wind-direction-data');
 
-   currentWeatherWindDirection.append(windDirection);
+   currentWeatherWindDirection.textContent = `Wind Direction: ${windDirection}`;
 
    let currentWeatherRain = document.getElementById('current-weather-rain-inches-data');
 
-   currentWeatherRain.append(rainInches);
+   currentWeatherRain.textContent = `Rain: ${rainInches} in`;
 
    let currentHumidityLevel = document.getElementById('current-weather-humidity-data'); 
 
-   currentHumidityLevel.append(humidityLevel);
+   currentHumidityLevel.textContent = `Humidity: ${humidityLevel}%`
 
 }
 
@@ -319,7 +321,7 @@ async function addWeatherForecast2(weather) {
 
     let day2ChanceOfSnow = forecastData2.forecast.forecastday[1].day.daily_chance_of_snow;
 
-    console.log(day2ChanceOfSnow);
+    // console.log(day2ChanceOfSnow);
 
     // console.log(day2Icon);
 
@@ -345,7 +347,55 @@ async function addWeatherForecast2(weather) {
 
     let chanceOfSnowData = document.getElementById('input-forecast-day2-snow-chance');
 
-    chanceOfSnowData.textContent = `Chance of Snow: ${day2ChanceOfSnow}`;
+    chanceOfSnowData.textContent = `Chance of Snow: ${day2ChanceOfSnow}%`;
+
+} 
+
+async function addWeatherForecast3(weather) { 
+    let forecastData3 = weather; 
+
+    let day3Date = forecastData3.forecast.forecastday[2].date; 
+
+    let day3ImgIcon = new Image(); 
+
+    day3ImgIcon.src = forecastData3.forecast.forecastday[2].day.condition.icon;
+
+    let day3HighTemp = forecastData3.forecast.forecastday[2].day.maxtemp_f;
+
+    let day3LowTemp = forecastData3.forecast.forecastday[2].day.mintemp_f;
+
+    let day3RainChance = forecastData3.forecast.forecastday[2].day.daily_chance_of_rain;
+
+    let day3UVIndex = forecastData3.forecast.forecastday[2].day.uv;
+
+    let day3ChanceOfSnow = forecastData3.forecast.forecastday[2].day.daily_chance_of_snow;
+
+    console.log(day3ChanceOfSnow);
+
+    let dateData = document.getElementById('input-forecast-day3-data-date');
+
+    dateData.textContent = `Date Today is: ${day3Date}`; 
+
+    let iconData = document.getElementById('input-forecast-day3-icon');
+
+    iconData.append(day3ImgIcon); 
+
+    let highLowTempData = document.getElementById('input-forecast-day3-high-low');
+
+    highLowTempData.textContent = `High today is: ${day3HighTemp} Low today is: ${day3LowTemp}`;
+
+    let chanceOfRainData = document.getElementById('input-forecast-day3-rain-chance');
+
+    chanceOfRainData.textContent = `Chance of Rain: ${day3RainChance}%` 
+
+    let uvIndexData = document.getElementById('input-forecast-day3-uv-index'); 
+
+    uvIndexData.textContent = `UV Index is: ${day3UVIndex}`; 
+
+    let chanceOfSnowData = document.getElementById('input-forecast-day3-snow-chance');
+
+    chanceOfSnowData.textContent = `Chance of Snow: ${day3ChanceOfSnow}%`;
+
 
 }
 
@@ -459,3 +509,12 @@ async function addWeatherForecast2(weather) {
 
 // append rainy pic 
 
+// I think everything is going ok, I will make the weather data for the last day of the forecast, commit, then fix the html above to use only the DOM 
+
+// I will fix the html to use DOM Only, 
+
+// then work on clearing the DOM, so values do not add onto 
+
+// HTML Is set, so how do I clear the values from the DOM, 
+
+// add new but replace old, 
