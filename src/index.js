@@ -135,7 +135,7 @@ async function fetchData(input) {
 
    addWeatherForecast1(currentWeatherData);
 
-  // addWeatherForecast2(currentWeatherData);
+   addWeatherForecast2(currentWeatherData);
 
 } 
 
@@ -160,7 +160,7 @@ async function displayCurrentWeather(weather) {
 
     weatherIcon.src = currentForecast.current.condition.icon;
 
-    console.log(currentForecast.current.condition)
+    // console.log(currentForecast.current.condition)
 
     let locationData = currentForecast.location.name;
 
@@ -244,7 +244,7 @@ searchBtn.addEventListener('click', (e) => {
 async function addWeatherForecast1(weather) { 
     let forecastData = await weather; 
 
-     console.log(forecastData.forecast.forecastday[0].day);
+     // console.log(forecastData.forecast.forecastday[0].day);
 
     // console.log(forecastData.forecast.forecastday[0].day.condition.icon);
 
@@ -261,8 +261,6 @@ async function addWeatherForecast1(weather) {
     let uvIndex = forecastData.forecast.forecastday[0].day.uv;
 
     let chanceOfSnow = forecastData.forecast.forecastday[0].day.daily_chance_of_snow;
-
-    console.log(chanceOfSnow);
 
     // day1Icon.style.height = '130px';
 
@@ -291,6 +289,63 @@ async function addWeatherForecast1(weather) {
     let chanceOfSnowData = document.getElementById('input-forecast-day-1-snow-chance'); 
 
     chanceOfSnowData.textContent = `Chance of Snow: ${chanceOfSnow}%`
+
+} 
+
+//     let day1HighTemp = forecastData.forecast.forecastday[0].day.maxtemp_f;
+
+// let day1LowTemp = forecastData.forecast.forecastday[0].day.mintemp_f;
+
+async function addWeatherForecast2(weather) { 
+    let forecastData2 = await weather; 
+
+    console.log(forecastData2);
+
+    // console.log(forecastData2.forecast.forecastday[1].date);
+
+    let day2Date = forecastData2.forecast.forecastday[1].date; 
+
+    let day2IconImg = new Image(); 
+
+    day2IconImg.src = forecastData2.forecast.forecastday[1].day.condition.icon;
+
+    let day2HighTemp = forecastData2.forecast.forecastday[1].day.maxtemp_f;
+
+    let day2LowTemp = forecastData2.forecast.forecastday[1].day.mintemp_f;
+
+    let day2ChanceOfRain = forecastData2.forecast.forecastday[1].day.daily_chance_of_rain;
+
+    let day2UVIndex = forecastData2.forecast.forecastday[1].day.uv; 
+
+    let day2ChanceOfSnow = forecastData2.forecast.forecastday[1].day.daily_chance_of_snow;
+
+    console.log(day2ChanceOfSnow);
+
+    // console.log(day2Icon);
+
+    let dateData = document.getElementById('input-forecast-day2-data-date');
+
+    dateData.textContent = `Date Today is: ${day2Date}`; 
+
+    let iconData = document.getElementById('input-forecast-day2-data-icon');
+
+    iconData.append(day2IconImg); 
+
+    let highLowTempData = document.getElementById('input-forecast-day2-high-low');
+
+    highLowTempData.textContent = `High Today is: ${day2HighTemp} Low today is: ${day2LowTemp}`; 
+
+    let chanceOfRainData = document.getElementById('input-forecast-day2-rain-chance');
+
+    chanceOfRainData.textContent = `Chance of Rain: ${day2ChanceOfRain}%`; 
+
+    let uvIndexData = document.getElementById('input-forecast-day2-uv-index');
+
+    uvIndexData.textContent = `UV Index is: ${day2UVIndex}`; 
+
+    let chanceOfSnowData = document.getElementById('input-forecast-day2-snow-chance');
+
+    chanceOfSnowData.textContent = `Chance of Snow: ${day2ChanceOfSnow}`;
 
 }
 
