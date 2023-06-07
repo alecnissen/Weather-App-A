@@ -53,14 +53,14 @@ body {
 
 #current-weather-data { 
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: bold;
 }
 
 #current-weather-container { 
     display: flex;
     justify-content: center;
-    height: 35vh;
+    height: 40vh;
     margin-top: 2em;
     /* height: 285px;
     width: 285px; */
@@ -81,8 +81,8 @@ body {
 #forecast-day-3-card { 
     /* width: 250px; 
     height: 250px; */
-    height: 35vh;
-    width: 20vw;
+    height: 45vh;
+    width: 25vw;
     background-color: rgb(177, 172, 172);
     border-radius: 10%;
     text-align: center;

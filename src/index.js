@@ -118,9 +118,9 @@ let searchBox = document.getElementById('search-box');
 
 let searchBtn = document.getElementById('search-btn'); 
 
-console.log(searchBtn);
+// console.log(searchBtn);
 
-console.log(searchBox);
+// console.log(searchBox);
 
 async function fetchData(input) { 
     let cityData = input; 
@@ -132,6 +132,10 @@ async function fetchData(input) {
     let currentWeatherData = jsonData;
     // console.log(currentWeatherData);
    displayCurrentWeather(currentWeatherData);
+
+   addWeatherForecast1(currentWeatherData);
+
+  // addWeatherForecast2(currentWeatherData);
 
 } 
 
@@ -148,6 +152,16 @@ async function displayCurrentWeather(weather) {
 
     // console.log(currentForecast.location) 
 
+    // let weatherIcon = currentForecast.current.condition.icon;
+
+    // (forecastData.forecast.forecastday[0].day.condition.icon);
+
+    let weatherIcon = new Image(); 
+
+    weatherIcon.src = currentForecast.current.condition.icon;
+
+    console.log(currentForecast.current.condition)
+
     let locationData = currentForecast.location.name;
 
     let weatherDescriptionData = currentForecast.current.condition.text; 
@@ -162,9 +176,9 @@ async function displayCurrentWeather(weather) {
 
     let humidityLevel = currentForecast.current.humidity;
 
-    let x = currentForecast.forecast.forecastday[0].day; 
+   //  let x = currentForecast.forecast.forecastday[0].day; 
 
-    console.log(x); 
+    // console.log(x); 
 
     // get what data and find what data you need forthe 
 
@@ -180,13 +194,9 @@ async function displayCurrentWeather(weather) {
 
     newImg.src = currentForecast.current.condition.icon;
 
-    document.body.append(newImg);
+   let currentWeatherIcon = document.getElementById('current-weather-icon'); 
 
-    // console.log(humidityLevel);
-
-   //  console.log(locationData);
-
-   //  document.body.append(currentForecast);
+   currentWeatherIcon.append(weatherIcon);
 
    let currentWeatherLocationText = document.getElementById('current-weather-location-p'); 
 
@@ -224,11 +234,65 @@ searchBtn.addEventListener('click', (e) => {
     // console.log(searchBox.value); 
     let inputValue = searchBox.value;
 
-    console.log(inputValue);
+    // console.log(inputValue);
 
     fetchData(inputValue);
 });
 
+//  let x = currentForecast.forecast.forecastday[0].day; 
+
+async function addWeatherForecast1(weather) { 
+    let forecastData = await weather; 
+
+     console.log(forecastData.forecast.forecastday[0].day);
+
+    // console.log(forecastData.forecast.forecastday[0].day.condition.icon);
+
+    let day1Date = forecastData.forecast.forecastday[0].date; 
+
+    let day1Icon = new Image(); 
+
+    let day1HighTemp = forecastData.forecast.forecastday[0].day.maxtemp_f;
+
+    let day1LowTemp = forecastData.forecast.forecastday[0].day.mintemp_f;
+
+    let chanceOfRain = forecastData.forecast.forecastday[0].day.daily_chance_of_rain;
+
+    let uvIndex = forecastData.forecast.forecastday[0].day.uv;
+
+    let chanceOfSnow = forecastData.forecast.forecastday[0].day.daily_chance_of_snow;
+
+    console.log(chanceOfSnow);
+
+    // day1Icon.style.height = '130px';
+
+    day1Icon.src = forecastData.forecast.forecastday[0].day.condition.icon; 
+    
+    let inputForImgDay1 = document.getElementById('input-forecast-day1-icon'); 
+
+    inputForImgDay1.append(day1Icon);
+
+    let dateAndIconData = document.getElementById('input-forecast-day1-data-date'); 
+
+    dateAndIconData.textContent = `Date today is: ${day1Date}`; 
+
+    let highLowTempData = document.getElementById('input-forecast-day1-high-low'); 
+
+    highLowTempData.textContent = `High today is: ${day1HighTemp} Low today is: ${day1LowTemp}`;
+
+    let chanceOfRainData = document.getElementById('input-forecast-day-1-rain-chance');
+    
+    chanceOfRainData.textContent = `Chance of Rain: ${chanceOfRain}%` 
+
+    let uvIndexData = document.getElementById('input-forecast-day-1-uv-index');
+
+    uvIndexData.textContent = `UV Index is: ${uvIndex}`;
+
+    let chanceOfSnowData = document.getElementById('input-forecast-day-1-snow-chance'); 
+
+    chanceOfSnowData.textContent = `Chance of Snow: ${chanceOfSnow}%`
+
+}
 
 // So I like waves project look, next I Will figure out a way 
 
@@ -296,4 +360,47 @@ searchBtn.addEventListener('click', (e) => {
 
 // append the values to the specific input fields, 
 
-// 
+// ok we got the markup 
+
+// now I think I Would pass the data to the other function, 
+
+// ok other function can accept the data, 
+
+// add the p elements on each card, and append data along with a message 
+
+// p element and append the date and icon first in the same line 
+
+// make a new function for each forecast day 
+
+// just to modularize things more and to avoid 
+
+// having one function to all the work and that function will 
+
+// be too big, one function for each day, 
+
+// pass the data to those 3 functions, 
+
+// its only 4 calls, one to current 
+
+// one to current, day1 2 3 
+
+// ok now use a function to print the data for day 2 forecast 
+
+// use a different function so it does not get too big 
+
+// another issue is getting the degrees symbol to show, 
+
+// and if the user inputs another search, 
+
+// clear the DOM to make way for the new. 
+
+// change background based on condition text 
+
+// if === sunny 
+
+// append sunny background picture, 
+
+// if === rainy 
+
+// append rainy pic 
+
