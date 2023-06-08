@@ -1,128 +1,28 @@
-// console.log('TEE');
-// console.log("asdfsdf"); 
-// console.log("TESTING!");
-// console.log("using template repo"); 
-
-
-// write a function that can return weather data for that location 
-
-// I got an API key from the website, now I need to use the key to get the data 
-
-// I got the API key and website that I want to use for this project 
-
-// I wrote a small function, async function 
-
-// that makes URL, and I get data back from the API request, 
-
-// What I believe I need to do next, is find a project and browse thru 
-
-// the projects to get an idea of how I really want everything to look, 
-
-// user will search for city data, and it should return that data and display to the dom 
-
-// right now look at projects, and think about making a search box, 
-
-// Look at projects, get more inspiration, 
-
-// you got data from an API request, 
-
-// now when user enters, a city name, and presses submit, 
-
-// return that data, 
-
-
-
-// Write the functions that hit the API. You’re going to want functions that can take a location and return the weather data for that location. 
-
-// For now, just console.log() the information. 
-
-// write a basic header, with a title and a search bar 
-
-// then once made, have the logic that takes in an input from the field, 
-
-// and make that a variable, put it into the URL, to fetch specific data from a city location, 
-
-// make header first. and  test css 
-
-// ok header will be styled using flexbox, 
-
-// weather app text, then search bar, search btn(submit btn)
-
-// last, button or div to toggle between F and C
-
-// have all the elements, header, search bar, search btn, f and c toggle btn, 
-
-// organize them with flex so they are in a row with space between them 
-
-// have the header container, display flex, but apply another container around the right elements 
-
-// OK we have the basic header markup and styling, 
-
-// now step 2, write a function which takez location and returns the weather info 
-
-// use variable, return weather for specific location, 
-
-// Write the functions that hit the API. You’re going to want functions that can take a location and return the weather data for that location. 
-
-// made a variable search box, 
-
-// what I want is to get city specific weather data, based on input data, and when the presses submit/search, 
-
-// make an event listener, 
-
-// call a callback function which fetches data based on location/variable, 
-
-// const getData = await fetch('http://api.weatherapi.com/v1/forecast.json?key=45464da38892450d95f10433230506 &q=philadelphia&days=5&aqi=no&alerts=no');
-
-// I am able to get weather data back, my function 
-
-// processes the JSON data as well 
-
-// I am able to key into the current weather, 
-
-// commit changes, add a little css for current weather, 
-
-// and see if you can append the JSON data, and the right info to the DOM 
-
-// try to make another function which will key into data 
-
-// and just display current forcast, 
-
-// confirm on discord that my approach so far is ok, 
-
-// async function which fetches specific city data, turns into jSON, 
-
-// then passes that JSON data to a function which will print the weather to the DOM. 
-
-// currently is my approach ok, next I was just going to make locations in the body 
-
-// where I can append the data, then style. 
-
-// next I made a section/card that I start appending the current weather data to 
-
-// append the current weather data, 
-
-// see if you can fetch the img/icon, 
-
-// icon first, then weather description, 
-
-// all in a column, 
-
-// ok not sure how to import imgs, 
-
-// lets try to fetch and display all other data to the DOM, 
-
-// import '../src/styles.scss'; 
 
 let searchBox = document.getElementById('search-box'); 
 
 let searchBtn = document.getElementById('search-btn'); 
 
-// console.log(searchBtn);
+// current weather data stored in here, 
+let weatherContainer = document.getElementById('current-weather-container'); 
 
-// console.log(searchBox);
+// tried this one too, no luck,
+// let currentContainer = document.getElementById('current-weather-data');
+
+// hello I am having difficulty clearing the DOM, in my current weather container, 
+
+// I want it so when user enters new value, it will clear the old, 
+
+// and make way for the new, right now, it will clear but 
+
+// I cannot add the new values back in, 
+
+// I've tried, clearing the DOM container once the search btn has been pressed, before the function calls, but nothing seems to be going through 
+
+// attaching code pen, anyone know how I can achieve this? 
 
 async function fetchData(input) { 
+
     let cityData = input; 
     console.log('The data passed in is: ' + cityData);
     const getData = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=45464da38892450d95f10433230506 &q=${cityData}&days=5&aqi=no&alerts=no`);
@@ -131,32 +31,32 @@ async function fetchData(input) {
     // let currentWeatherData = jsonData.current.condition.text; 
     let currentWeatherData = jsonData;
     // console.log(currentWeatherData);
+
+   //  weatherContainer.clear();
+
    displayCurrentWeather(currentWeatherData);
 
    addWeatherForecast1(currentWeatherData);
 
    addWeatherForecast2(currentWeatherData);
 
-   addWeatherForecast3(currentWeatherData);
+   addWeatherForecast3(currentWeatherData); 
 
 } 
+ 
 
-// get city name, temp, feels like, humidity, wind speed
-// key into each variable then append. 
-
- let weatherContainer = document.getElementById('current-weather-container');
+//  let weatherContainer = document.getElementById('current-weather-container'); 
 
 async function displayCurrentWeather(weather) { 
+
+    let currentWeatherIcon = document.getElementById('current-weather-icon'); 
     // clear DOM, replaceChildren before appending new
-    
 
     let currentForecast = await weather; 
 
     // console.log(currentForecast.location) 
 
-    // let weatherIcon = currentForecast.current.condition.icon;
-
-    // (forecastData.forecast.forecastday[0].day.condition.icon);
+    currentWeatherIcon.textContent = '';
 
     let weatherIcon = new Image(); 
 
@@ -178,31 +78,17 @@ async function displayCurrentWeather(weather) {
 
     let humidityLevel = currentForecast.current.humidity;
 
-   //  let x = currentForecast.forecast.forecastday[0].day; 
-
-    // console.log(x); 
-
-    // get what data and find what data you need forthe 
-
-    // 3 day forecast, including icon 
-
-    // date 
-
-    // high low temp 
-
-    // chance of rain, chance of snow, UV Index 
-
     let newImg = new Image();
 
     newImg.src = currentForecast.current.condition.icon;
 
-   let currentWeatherIcon = document.getElementById('current-weather-icon'); 
+//    let currentWeatherIcon = document.getElementById('current-weather-icon'); 
 
-   currentWeatherIcon.append(weatherIcon);
+   // dont append use variable and template literals, appending may stop the adding onto to instead of replacing, 
+
+   currentWeatherIcon.appendChild(weatherIcon);
 
    let currentWeatherLocationText = document.getElementById('current-weather-location-p'); 
-
-   // currentWeatherLocationText.replaceChildren();
 
    currentWeatherLocationText.textContent = `Location: ${locationData}`;
 
@@ -230,10 +116,13 @@ async function displayCurrentWeather(weather) {
 
    currentHumidityLevel.textContent = `Humidity: ${humidityLevel}%`
 
-}
+} 
+
+// needs to somehow be cleared in the search btn 
 
 searchBtn.addEventListener('click', (e) => { 
-    // console.log(searchBox.value); 
+   //  weatherContainer.replaceChildren(); 
+
     let inputValue = searchBox.value;
 
     // console.log(inputValue);
@@ -249,6 +138,10 @@ async function addWeatherForecast1(weather) {
      // console.log(forecastData.forecast.forecastday[0].day);
 
     // console.log(forecastData.forecast.forecastday[0].day.condition.icon);
+
+    let inputForImgDay1 = document.getElementById('input-forecast-day1-icon'); 
+
+    inputForImgDay1.textContent = '';
 
     let day1Date = forecastData.forecast.forecastday[0].date; 
 
@@ -268,7 +161,7 @@ async function addWeatherForecast1(weather) {
 
     day1Icon.src = forecastData.forecast.forecastday[0].day.condition.icon; 
     
-    let inputForImgDay1 = document.getElementById('input-forecast-day1-icon'); 
+    // let inputForImgDay1 = document.getElementById('input-forecast-day1-icon'); 
 
     inputForImgDay1.append(day1Icon);
 
@@ -294,9 +187,6 @@ async function addWeatherForecast1(weather) {
 
 } 
 
-//     let day1HighTemp = forecastData.forecast.forecastday[0].day.maxtemp_f;
-
-// let day1LowTemp = forecastData.forecast.forecastday[0].day.mintemp_f;
 
 async function addWeatherForecast2(weather) { 
     let forecastData2 = await weather; 
@@ -304,6 +194,10 @@ async function addWeatherForecast2(weather) {
     console.log(forecastData2);
 
     // console.log(forecastData2.forecast.forecastday[1].date);
+
+    let iconData = document.getElementById('input-forecast-day2-data-icon');
+
+    iconData.textContent = '';
 
     let day2Date = forecastData2.forecast.forecastday[1].date; 
 
@@ -329,7 +223,7 @@ async function addWeatherForecast2(weather) {
 
     dateData.textContent = `Date Today is: ${day2Date}`; 
 
-    let iconData = document.getElementById('input-forecast-day2-data-icon');
+    // let iconData = document.getElementById('input-forecast-day2-data-icon');
 
     iconData.append(day2IconImg); 
 
@@ -358,6 +252,11 @@ async function addWeatherForecast3(weather) {
 
     let day3ImgIcon = new Image(); 
 
+    let iconData = document.getElementById('input-forecast-day3-icon');
+
+    iconData.textContent = '';
+
+
     day3ImgIcon.src = forecastData3.forecast.forecastday[2].day.condition.icon;
 
     let day3HighTemp = forecastData3.forecast.forecastday[2].day.maxtemp_f;
@@ -376,7 +275,7 @@ async function addWeatherForecast3(weather) {
 
     dateData.textContent = `Date Today is: ${day3Date}`; 
 
-    let iconData = document.getElementById('input-forecast-day3-icon');
+    // let iconData = document.getElementById('input-forecast-day3-icon');
 
     iconData.append(day3ImgIcon); 
 
@@ -518,3 +417,15 @@ async function addWeatherForecast3(weather) {
 // HTML Is set, so how do I clear the values from the DOM, 
 
 // add new but replace old, 
+
+// having issue clearing the DOM, 
+
+// I thought clearning it before the function call or inside the functionthat was called 
+
+// where can I clear the DOM, 
+
+// it needs to be in the right spot, 
+
+// clear the DOM once the search btn is pressed, 
+
+// clear old data, add the new, 
