@@ -1,8 +1,8 @@
 // import './styles.scss';
 
-// import './style.css';
+import './style.css';
 
-// import './styles.scss';
+import './styles.scss';
 
 // in order to use earth background img you must import it and see if you can use it in css 
 
