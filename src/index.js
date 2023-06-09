@@ -1,5 +1,7 @@
 // import './styles.scss';
 
+console.log('\u00B0');
+
 
 let searchBox = document.getElementById('search-box'); 
 
@@ -173,8 +175,33 @@ celciusBtn.addEventListener('click', (e) => {
 
     let currentWeatherTempData = document.getElementById('current-weather-temp-data'); 
 
-    currentWeatherTempData.textContent = `Temprature Is: ${currentCelciusTemp} C` ;
+    currentWeatherTempData.textContent = `Temprature Is: ${currentCelciusTemp} C`; 
 
+    let day1HighTemp = storedWeatherData.forecast.forecastday[0].day.maxtemp_c;
+
+    let day1LowTemp = storedWeatherData.forecast.forecastday[0].day.mintemp_c;
+
+    let highLowTempData = document.getElementById('input-forecast-day1-high-low'); 
+
+    highLowTempData.textContent = `High today is: ${day1HighTemp} C Low today is: ${day1LowTemp} C`;
+
+    let day2HighTemp = storedWeatherData.forecast.forecastday[1].day.maxtemp_c;
+
+    let day2LowTemp = storedWeatherData.forecast.forecastday[1].day.mintemp_c; 
+
+    let highLowTempDataDay2 = document.getElementById('input-forecast-day2-high-low');
+
+    highLowTempDataDay2.textContent = `High Today is: ${day2HighTemp} C Low today is: ${day2LowTemp} C`;  
+
+    // 
+
+    let day3HighTemp = storedWeatherData.forecast.forecastday[2].day.maxtemp_c;
+
+    let day3LowTemp = storedWeatherData.forecast.forecastday[2].day.mintemp_c;
+
+    let highLowTempDataDay3 = document.getElementById('input-forecast-day3-high-low');
+
+    highLowTempDataDay3.textContent = `High today is: ${day3HighTemp} C Low today is: ${day3LowTemp} C`;
     
 }); 
 
@@ -187,6 +214,32 @@ fBtn.addEventListener('click', (e) => {
     let currentWeatherTempData = document.getElementById('current-weather-temp-data');
 
     currentWeatherTempData.textContent = `Temprature Is: ${currentFTemp} F`;
+
+    let day1HighTemp = storedWeatherData.forecast.forecastday[0].day.maxtemp_f;
+
+    let day1LowTemp = storedWeatherData.forecast.forecastday[0].day.mintemp_f;
+
+    let highLowTempData = document.getElementById('input-forecast-day1-high-low'); 
+
+    highLowTempData.textContent = `High today is: ${day1HighTemp} F Low today is: ${day1LowTemp} F`; 
+
+    let day2HighTemp = storedWeatherData.forecast.forecastday[1].day.maxtemp_f;
+
+    let day2LowTemp = storedWeatherData.forecast.forecastday[1].day.mintemp_f; 
+
+    let highLowTempDataDay2 = document.getElementById('input-forecast-day2-high-low');
+
+    highLowTempDataDay2.textContent = `High Today is: ${day2HighTemp} F Low today is: ${day2LowTemp} F`; 
+
+    // 
+
+    let day3HighTemp = storedWeatherData.forecast.forecastday[2].day.maxtemp_f;
+
+    let day3LowTemp = storedWeatherData.forecast.forecastday[2].day.mintemp_f;
+
+    let highLowTempDataDay3 = document.getElementById('input-forecast-day3-high-low');
+
+    highLowTempDataDay3.textContent = `High today is: ${day3HighTemp} F Low today is: ${day3LowTemp} F`;
     
 })
 
@@ -290,7 +343,7 @@ async function addWeatherForecast1(weather) {
 
     let highLowTempData = document.getElementById('input-forecast-day1-high-low'); 
 
-    highLowTempData.textContent = `High today is: ${day1HighTemp} Low today is: ${day1LowTemp}`;
+    highLowTempData.textContent = `High today is: ${day1HighTemp} F Low today is: ${day1LowTemp} F`;
 
     let chanceOfRainData = document.getElementById('input-forecast-day-1-rain-chance');
     
@@ -348,7 +401,7 @@ async function addWeatherForecast2(weather) {
 
     let highLowTempData = document.getElementById('input-forecast-day2-high-low');
 
-    highLowTempData.textContent = `High Today is: ${day2HighTemp} Low today is: ${day2LowTemp}`; 
+    highLowTempData.textContent = `High Today is: ${day2HighTemp} F Low today is: ${day2LowTemp} F`; 
 
     let chanceOfRainData = document.getElementById('input-forecast-day2-rain-chance');
 
@@ -400,7 +453,7 @@ async function addWeatherForecast3(weather) {
 
     let highLowTempData = document.getElementById('input-forecast-day3-high-low');
 
-    highLowTempData.textContent = `High today is: ${day3HighTemp} Low today is: ${day3LowTemp}`;
+    highLowTempData.textContent = `High today is: ${day3HighTemp} F Low today is: ${day3LowTemp} F`;
 
     let chanceOfRainData = document.getElementById('input-forecast-day3-rain-chance');
 
