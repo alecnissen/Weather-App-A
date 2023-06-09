@@ -2,6 +2,25 @@
 
 console.log('\u00B0');
 
+// in order to use earth background img you must import it and see if you can use it in css 
+
+// but in js, 
+
+// query selector the body, select element, 
+
+// add the img as a background, and set the imported img as the src. 
+
+// why foes f change when I enter it again? Check to make sure you are logging correct days 
+
+// change it to feels like instead of current temp 
+
+// OK so today, I Like the styling for the background, move the the imgs into the src directory, 
+
+// and use gh pages, to see if the images render, 
+
+// also change the current weather, to use current instead of feels like, double check with that, 
+
+// last try to install sass, maybe ask if it is necessary to use two JS files, 
 
 let searchBox = document.getElementById('search-box'); 
 
