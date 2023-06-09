@@ -11,6 +11,8 @@
 body { 
     /* background-color: rgb(177, 172, 172); */
     background-color: lightgrey;;
+    background: url(../pexels-pixabay-41950.jpg);
+    background-size: cover;
 }
 
 .header-container { 
@@ -54,25 +56,28 @@ body {
 #current-weather-data { 
     text-align: center;
     font-size: 1.2rem;
-    font-weight: bold;
+    font-weight: bolder;
+    color: white;
 }
 
 #current-weather-container { 
     display: flex;
     justify-content: center;
     height: 40vh;
-    margin-top: 2em;
+    /* margin-top: 2em; */
+    color: white;
     /* height: 285px;
     width: 285px; */
-    background-color: rgb(177, 172, 172);
+    /* background-color: rgb(177, 172, 172); */
 } 
 
 #forecast-3-day-title { 
     text-align: center;
-    font-size: 2rem;
+    font-size: 1.3rem;
     font-weight: bold;
     text-decoration: underline;
     margin-top: 0.5em;
+    color: white;
 }
 
 
@@ -83,9 +88,13 @@ body {
     height: 250px; */
     height: 45vh;
     width: 25vw;
-    background-color: rgb(177, 172, 172);
+    /* background-color: rgb(177, 172, 172); */
+    background-color: black;
+    opacity: 0.7;
     border-radius: 10%;
     text-align: center;
+    color: white; 
+    font-weight: bold;
 } 
 
 #forecast-days-container { 
