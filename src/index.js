@@ -155,71 +155,101 @@ searchBtn.addEventListener('click', (e) => {
 // maybe I should make another variable for F 
 
 
-let toggleTempratureBtn = document.getElementById('F-C-toggle-btn'); 
+// let toggleTempratureBtn = document.getElementById('F-C-toggle-btn'); 
 
-let isCelcius = false; 
+// let isCelcius = false; 
 
-// let isF = true; 
+// // let isF = true; 
 
-toggleTempratureBtn.addEventListener('click', (e) => { 
-     isCelcius = true;
+// HERE!
 
+// grab the element, C element 
 
-    //  isF = false;
+let celciusBtn = document.getElementById('C-toggle-btn'); 
 
-    let x = searchBox.value; 
+celciusBtn.addEventListener('click', (e) => {
+
+    let currentCelciusTemp = storedWeatherData.current.temp_c; 
+
+    let currentWeatherTempData = document.getElementById('current-weather-temp-data'); 
+
+    currentWeatherTempData.textContent = `Temprature Is: ${currentCelciusTemp} C` ;
+
     
-   // set variable for current temp in c
+}); 
 
-   // grab the input field for current temp 
+let fBtn = document.getElementById('F-toggle-btn'); 
 
-   // should I have two different btns, 
+fBtn.addEventListener('click', (e) => {
 
-   // if F clicked append, f values 
+    let currentFTemp = storedWeatherData.current.temp_f; 
 
-   // if c clicked, append c values, 
+    let currentWeatherTempData = document.getElementById('current-weather-temp-data');
 
-   // how to flip a boolean value based on btn click
+    currentWeatherTempData.textContent = `Temprature Is: ${currentFTemp} F`;
+    
+})
 
-   // I think the best way is to keep a seperate btn, 
 
-   // ideally I would like to complete this within the function, 
+// toggleTempratureBtn.addEventListener('click', (e) => { 
+//      isCelcius = true;
 
-   // but may be easier to make two btns, hit the c btn display c temp data in all the correct spots 
 
-   // if f is hit then display F in all the right places, 
+//     //  isF = false;
 
-   // I will make two buttons, event listener, if f clicked diplsay f temp data, if c clicked, display c values, grabbing the input fields, and using ${}
+//     let x = searchBox.value; 
+    
+//    // set variable for current temp in c
 
-   // to append variables to the DOM. 
+//    // grab the input field for current temp 
 
-   let currentCelciusTemp = storedWeatherData.current.temp_c; 
+//    // should I have two different btns, 
 
-   let currentFTemp = storedWeatherData.current.temp_f; 
+//    // if F clicked append, f values 
 
-   let currentWeatherTempData = document.getElementById('current-weather-temp-data'); 
+//    // if c clicked, append c values, 
 
-   console.log(currentCelciusTemp); 
+//    // how to flip a boolean value based on btn click
 
-   console.log(currentFTemp); 
+//    // I think the best way is to keep a seperate btn, 
 
-   if (isCelcius) { 
-    currentWeatherTempData.textContent = `${currentCelciusTemp}`;
-    // isCelcius = false;
-   } else if (!isCelcius) { 
-    currentWeatherTempData.textContent = `${currentFTemp}`;
-   }
+//    // ideally I would like to complete this within the function, 
 
-   isCelcius = false;
+//    // but may be easier to make two btns, hit the c btn display c temp data in all the correct spots 
 
-   console.log(isCelcius);
-//    } else (isF) { 
+//    // if f is hit then display F in all the right places, 
+
+//    // I will make two buttons, event listener, if f clicked diplsay f temp data, if c clicked, display c values, grabbing the input fields, and using ${}
+
+//    // to append variables to the DOM. 
+
+//    let currentCelciusTemp = storedWeatherData.current.temp_c; 
+
+//    let currentFTemp = storedWeatherData.current.temp_f; 
+
+//    let currentWeatherTempData = document.getElementById('current-weather-temp-data'); 
+
+//    console.log(currentCelciusTemp); 
+
+//    console.log(currentFTemp); 
+
+//    if (isCelcius) { 
+//     currentWeatherTempData.textContent = `${currentCelciusTemp}`;
+//     // isCelcius = false;
+//    } else if (!isCelcius) { 
 //     currentWeatherTempData.textContent = `${currentFTemp}`;
 //    }
+
+//    isCelcius = false;
+
+//    console.log(isCelcius);
+// //    } else (isF) { 
+// //     currentWeatherTempData.textContent = `${currentFTemp}`;
+// //    }
     
-    // console.log(storedWeatherData.current.condition);
-// fetchData.then(data => console.log(data));
-});
+//     // console.log(storedWeatherData.current.condition);
+// // fetchData.then(data => console.log(data));
+// });
 
 async function addWeatherForecast1(weather) { 
     let forecastData = await weather; 
