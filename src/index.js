@@ -1,3 +1,5 @@
+// import './styles.scss';
+
 
 let searchBox = document.getElementById('search-box'); 
 
@@ -6,33 +8,23 @@ let searchBtn = document.getElementById('search-btn');
 // current weather data stored in here, 
 let weatherContainer = document.getElementById('current-weather-container'); 
 
-// tried this one too, no luck,
-// let currentContainer = document.getElementById('current-weather-data');
-
-// hello I am having difficulty clearing the DOM, in my current weather container, 
-
-// I want it so when user enters new value, it will clear the old, 
-
-// and make way for the new, right now, it will clear but 
-
-// I cannot add the new values back in, 
-
-// I've tried, clearing the DOM container once the search btn has been pressed, before the function calls, but nothing seems to be going through 
-
-// attaching code pen, anyone know how I can achieve this? 
+let storedWeatherData
 
 async function fetchData(input) { 
 
     let cityData = input; 
+    
     console.log('The data passed in is: ' + cityData);
+    
     const getData = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=45464da38892450d95f10433230506 &q=${cityData}&days=5&aqi=no&alerts=no`);
-    const jsonData = await getData.json();
-    // console.log(jsonData); 
-    // let currentWeatherData = jsonData.current.condition.text; 
-    let currentWeatherData = jsonData;
-    // console.log(currentWeatherData);
 
-   //  weatherContainer.clear();
+    const jsonData = await getData.json();
+    
+    let currentWeatherData = jsonData;
+    
+    storedWeatherData = currentWeatherData; 
+
+   // console.log(storedWeatherData);
 
    displayCurrentWeather(currentWeatherData);
 
@@ -42,7 +34,19 @@ async function fetchData(input) {
 
    addWeatherForecast3(currentWeatherData); 
 
+  //  toggle(currentWeatherData);
+
+  // return jsonData;
+
 } 
+
+// how can I store weather data outside of the function? 
+
+// all I can think of is a global variable,c
+
+// fetchData.then(data => console.log(data)); 
+
+// OK I am able to get the weather data, within my event listener function 
  
 
 //  let weatherContainer = document.getElementById('current-weather-container'); 
@@ -56,7 +60,9 @@ async function displayCurrentWeather(weather) {
 
     // console.log(currentForecast.location) 
 
-    currentWeatherIcon.textContent = '';
+    currentWeatherIcon.textContent = ''; 
+
+
 
     let weatherIcon = new Image(); 
 
@@ -121,16 +127,99 @@ async function displayCurrentWeather(weather) {
 // needs to somehow be cleared in the search btn 
 
 searchBtn.addEventListener('click', (e) => { 
-   //  weatherContainer.replaceChildren(); 
+
+    console.log('click');
 
     let inputValue = searchBox.value;
 
-    // console.log(inputValue);
-
     fetchData(inputValue);
-});
 
-//  let x = currentForecast.forecast.forecastday[0].day; 
+}); 
+
+// grab the input fields that have F 
+
+// set variables for current temp in c, high temp in c, low temp in c 
+
+// set those variables, 
+
+// set a variable isC to false, 
+
+// conditional if c is true grab the values, then replace them with c value, 
+
+// if false, switch them back to F, 
+
+// can switch the temp, 
+
+// but how can I toggle back and forth 
+
+// maybe I should make another variable for F 
+
+
+let toggleTempratureBtn = document.getElementById('F-C-toggle-btn'); 
+
+let isCelcius = false; 
+
+// let isF = true; 
+
+toggleTempratureBtn.addEventListener('click', (e) => { 
+     isCelcius = true;
+
+
+    //  isF = false;
+
+    let x = searchBox.value; 
+    
+   // set variable for current temp in c
+
+   // grab the input field for current temp 
+
+   // should I have two different btns, 
+
+   // if F clicked append, f values 
+
+   // if c clicked, append c values, 
+
+   // how to flip a boolean value based on btn click
+
+   // I think the best way is to keep a seperate btn, 
+
+   // ideally I would like to complete this within the function, 
+
+   // but may be easier to make two btns, hit the c btn display c temp data in all the correct spots 
+
+   // if f is hit then display F in all the right places, 
+
+   // I will make two buttons, event listener, if f clicked diplsay f temp data, if c clicked, display c values, grabbing the input fields, and using ${}
+
+   // to append variables to the DOM. 
+
+   let currentCelciusTemp = storedWeatherData.current.temp_c; 
+
+   let currentFTemp = storedWeatherData.current.temp_f; 
+
+   let currentWeatherTempData = document.getElementById('current-weather-temp-data'); 
+
+   console.log(currentCelciusTemp); 
+
+   console.log(currentFTemp); 
+
+   if (isCelcius) { 
+    currentWeatherTempData.textContent = `${currentCelciusTemp}`;
+    // isCelcius = false;
+   } else if (!isCelcius) { 
+    currentWeatherTempData.textContent = `${currentFTemp}`;
+   }
+
+   isCelcius = false;
+
+   console.log(isCelcius);
+//    } else (isF) { 
+//     currentWeatherTempData.textContent = `${currentFTemp}`;
+//    }
+    
+    // console.log(storedWeatherData.current.condition);
+// fetchData.then(data => console.log(data));
+});
 
 async function addWeatherForecast1(weather) { 
     let forecastData = await weather; 
@@ -295,7 +384,6 @@ async function addWeatherForecast3(weather) {
 
     chanceOfSnowData.textContent = `Chance of Snow: ${day3ChanceOfSnow}%`;
 
-
 }
 
 // So I like waves project look, next I Will figure out a way 
@@ -429,3 +517,21 @@ async function addWeatherForecast3(weather) {
 // clear the DOM once the search btn is pressed, 
 
 // clear old data, add the new, 
+
+// OK I was able to figure out the dom issue, it was more the icons that I had to replace, instead of clearning the dom each time, 
+
+// setting the text Content of the element, to empty will make way for the new value/icon 
+
+// next I need to figure out how to write a function or perform the logic that would allow me to change the f data to c data 
+
+// first locate all values that use f, 
+
+// just change the temp. there is one in current weather and days, each day will need to high and low temp changed, 
+
+// I am confused on how to approach this, 
+
+// a function? 
+
+// once the btn is clicked, grab the values, grab all the inputs/fields, call another function, which will intake the current weather, key into values, 
+
+// then display those values to the DOM? 
