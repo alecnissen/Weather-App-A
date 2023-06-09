@@ -22,6 +22,12 @@ console.log('\u00B0');
 
 // last try to install sass, maybe ask if it is necessary to use two JS files, 
 
+// brush up on the styling too, maybe use DOM styling for the 3 day forecast boxes, once data is entered, then apply the background styles, 
+
+// test gh pages, 
+
+// how can I display all content, webpack issue of gh pages not displaying the content, it only displays the html. 
+
 let searchBox = document.getElementById('search-box'); 
 
 let searchBtn = document.getElementById('search-btn'); 
