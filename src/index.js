@@ -10,7 +10,7 @@ let searchBtn = document.getElementById('search-btn');
 // current weather data stored in here, 
 let weatherContainer = document.getElementById('current-weather-container'); 
 
-let storedWeatherData
+let storedWeatherData 
 
 async function fetchData(input) { 
 
@@ -106,7 +106,7 @@ async function displayCurrentWeather(weather) {
 
    let currentWeatherTempData = document.getElementById('current-weather-temp-data'); 
 
-   currentWeatherTempData.textContent = `Temprature is: ${currentWeatherNumberData} F`;
+   currentWeatherTempData.textContent = `Temprature is: ${currentWeatherNumberData} \u00B0F`;
 
    let currentWeatherWindData = document.getElementById('current-weather-wind-data'); 
 
@@ -183,7 +183,7 @@ celciusBtn.addEventListener('click', (e) => {
 
     let highLowTempData = document.getElementById('input-forecast-day1-high-low'); 
 
-    highLowTempData.textContent = `High today is: ${day1HighTemp} C Low today is: ${day1LowTemp} C`;
+    highLowTempData.textContent = `High today is: ${day1HighTemp}\u00B0C Low today is: ${day1LowTemp}\u00B0C`;
 
     let day2HighTemp = storedWeatherData.forecast.forecastday[1].day.maxtemp_c;
 
@@ -191,7 +191,7 @@ celciusBtn.addEventListener('click', (e) => {
 
     let highLowTempDataDay2 = document.getElementById('input-forecast-day2-high-low');
 
-    highLowTempDataDay2.textContent = `High Today is: ${day2HighTemp} C Low today is: ${day2LowTemp} C`;  
+    highLowTempDataDay2.textContent = `High Today is: ${day2HighTemp}\u00B0C Low today is: ${day2LowTemp}\u00B0C`;  
 
     // 
 
@@ -201,7 +201,7 @@ celciusBtn.addEventListener('click', (e) => {
 
     let highLowTempDataDay3 = document.getElementById('input-forecast-day3-high-low');
 
-    highLowTempDataDay3.textContent = `High today is: ${day3HighTemp} C Low today is: ${day3LowTemp} C`;
+    highLowTempDataDay3.textContent = `High today is: ${day3HighTemp}\u00B0C Low today is: ${day3LowTemp}\u00B0C`;
     
 }); 
 
@@ -213,7 +213,7 @@ fBtn.addEventListener('click', (e) => {
 
     let currentWeatherTempData = document.getElementById('current-weather-temp-data');
 
-    currentWeatherTempData.textContent = `Temprature Is: ${currentFTemp} F`;
+    currentWeatherTempData.textContent = `Temprature Is: ${currentFTemp}\u00B0F`;
 
     let day1HighTemp = storedWeatherData.forecast.forecastday[0].day.maxtemp_f;
 
@@ -221,7 +221,7 @@ fBtn.addEventListener('click', (e) => {
 
     let highLowTempData = document.getElementById('input-forecast-day1-high-low'); 
 
-    highLowTempData.textContent = `High today is: ${day1HighTemp} F Low today is: ${day1LowTemp} F`; 
+    highLowTempData.textContent = `High today is: ${day1HighTemp}\u00B0F Low today is: ${day1LowTemp}\u00B0F`; 
 
     let day2HighTemp = storedWeatherData.forecast.forecastday[1].day.maxtemp_f;
 
@@ -229,7 +229,7 @@ fBtn.addEventListener('click', (e) => {
 
     let highLowTempDataDay2 = document.getElementById('input-forecast-day2-high-low');
 
-    highLowTempDataDay2.textContent = `High Today is: ${day2HighTemp} F Low today is: ${day2LowTemp} F`; 
+    highLowTempDataDay2.textContent = `High Today is: ${day2HighTemp}\u00B0F Low today is: ${day2LowTemp}\u00B0F`; 
 
     // 
 
@@ -239,7 +239,7 @@ fBtn.addEventListener('click', (e) => {
 
     let highLowTempDataDay3 = document.getElementById('input-forecast-day3-high-low');
 
-    highLowTempDataDay3.textContent = `High today is: ${day3HighTemp} F Low today is: ${day3LowTemp} F`;
+    highLowTempDataDay3.textContent = `High today is: ${day3HighTemp}\u00B0F Low today is: ${day3LowTemp}\u00B0F`;
     
 })
 
@@ -343,7 +343,7 @@ async function addWeatherForecast1(weather) {
 
     let highLowTempData = document.getElementById('input-forecast-day1-high-low'); 
 
-    highLowTempData.textContent = `High today is: ${day1HighTemp} F Low today is: ${day1LowTemp} F`;
+    highLowTempData.textContent = `High today is: ${day1HighTemp}\u00B0F Low today is: ${day1LowTemp}\u00B0F`;
 
     let chanceOfRainData = document.getElementById('input-forecast-day-1-rain-chance');
     
@@ -401,7 +401,7 @@ async function addWeatherForecast2(weather) {
 
     let highLowTempData = document.getElementById('input-forecast-day2-high-low');
 
-    highLowTempData.textContent = `High Today is: ${day2HighTemp} F Low today is: ${day2LowTemp} F`; 
+    highLowTempData.textContent = `High Today is: ${day2HighTemp}\u00B0F Low today is: ${day2LowTemp}\u00B0F`; 
 
     let chanceOfRainData = document.getElementById('input-forecast-day2-rain-chance');
 
@@ -453,7 +453,7 @@ async function addWeatherForecast3(weather) {
 
     let highLowTempData = document.getElementById('input-forecast-day3-high-low');
 
-    highLowTempData.textContent = `High today is: ${day3HighTemp} F Low today is: ${day3LowTemp} F`;
+    highLowTempData.textContent = `High today is: ${day3HighTemp}\u00B0F Low today is: ${day3LowTemp}\u00B0F`;
 
     let chanceOfRainData = document.getElementById('input-forecast-day3-rain-chance');
 
