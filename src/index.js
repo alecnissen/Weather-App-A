@@ -45,7 +45,7 @@ async function fetchData(input) {
     
     console.log('The data passed in is: ' + cityData);
     
-    const getData = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=45464da38892450d95f10433230506 &q=${cityData}&days=5&aqi=no&alerts=no`);
+    const getData = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=45464da38892450d95f10433230506 &q=${cityData}&days=5&aqi=no&alerts=no`);
 
     const jsonData = await getData.json();
     
