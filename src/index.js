@@ -4,6 +4,18 @@ import './style.css';
 
 import './styles.scss';
 
+// Ok so gh pages is working, sass is up and running! Hell yes, 
+
+// next I will style with sass, clean up the styling, import some fonts, 
+
+// fix the current temp vs feels like temp change, 
+
+// then call it a day, 
+
+// sass, use fonts, see if you can transfer the css you wrote into sass, use variables, mixins, nesting 
+
+// fonts, weather type font
+
 // in order to use earth background img you must import it and see if you can use it in css 
 
 // but in js, 
@@ -54,7 +66,7 @@ async function fetchData(input) {
     
     storedWeatherData = currentWeatherData; 
 
-   // console.log(storedWeatherData);
+   console.log(currentWeatherData);
 
    displayCurrentWeather(currentWeatherData);
 
@@ -105,7 +117,7 @@ async function displayCurrentWeather(weather) {
 
     let weatherDescriptionData = currentForecast.current.condition.text; 
 
-    let currentWeatherNumberData = currentForecast.current.feelslike_f;
+    let currentWeatherNumberData = currentForecast.current.temp_f;
 
     let windData = currentForecast.current.wind_mph;
 
@@ -204,7 +216,7 @@ celciusBtn.addEventListener('click', (e) => {
 
     let currentWeatherTempData = document.getElementById('current-weather-temp-data'); 
 
-    currentWeatherTempData.textContent = `Temprature Is: ${currentCelciusTemp} C`; 
+    currentWeatherTempData.textContent = `Temprature Is: ${currentCelciusTemp}\u00B0C`; 
 
     let day1HighTemp = storedWeatherData.forecast.forecastday[0].day.maxtemp_c;
 
