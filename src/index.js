@@ -4,6 +4,12 @@ import './style.css';
 
 import './styles.scss';
 
+// added photo credit, so next I will update input values to use humidity and wind direction, 
+
+// 
+
+
+
 // Ok so gh pages is working, sass is up and running! Hell yes, 
 
 // next I will style with sass, clean up the styling, import some fonts, 
@@ -147,7 +153,7 @@ async function displayCurrentWeather(weather) {
 
    let currentWeatherTempData = document.getElementById('current-weather-temp-data'); 
 
-   currentWeatherTempData.textContent = `Temprature is: ${currentWeatherNumberData} \u00B0F`;
+   currentWeatherTempData.textContent = `Temprature Is: ${currentWeatherNumberData}\u00B0F`;
 
    let currentWeatherWindData = document.getElementById('current-weather-wind-data'); 
 
@@ -368,7 +374,11 @@ async function addWeatherForecast1(weather) {
 
     let uvIndex = forecastData.forecast.forecastday[0].day.uv;
 
-    let chanceOfSnow = forecastData.forecast.forecastday[0].day.daily_chance_of_snow;
+    let humidity = forecastData.forecast.forecastday[0].day.avghumidity;
+
+    let wind = forecastData.forecast.forecastday[0].day.maxwind_mph;
+
+    console.log(wind);
 
     // day1Icon.style.height = '130px';
 
@@ -394,9 +404,13 @@ async function addWeatherForecast1(weather) {
 
     uvIndexData.textContent = `UV Index is: ${uvIndex}`;
 
-    let chanceOfSnowData = document.getElementById('input-forecast-day-1-snow-chance'); 
+    let humidityData = document.getElementById('input-forecast-day-1-humidity'); 
 
-    chanceOfSnowData.textContent = `Chance of Snow: ${chanceOfSnow}%`
+    humidityData.textContent = `Humidity Levels: ${humidity}%`;
+
+    let windData = document.getElementById('input-forecast-day-1-wind');
+
+    windData.textContent = `Wind Speed: ${wind} mph`;
 
 } 
 
@@ -426,7 +440,9 @@ async function addWeatherForecast2(weather) {
 
     let day2UVIndex = forecastData2.forecast.forecastday[1].day.uv; 
 
-    let day2ChanceOfSnow = forecastData2.forecast.forecastday[1].day.daily_chance_of_snow;
+    let day2Humidity = forecastData2.forecast.forecastday[1].day.avghumidity;
+
+    let day2WindSpeed = forecastData2.forecast.forecastday[1].day.maxwind_mph;
 
     // console.log(day2ChanceOfSnow);
 
@@ -452,9 +468,13 @@ async function addWeatherForecast2(weather) {
 
     uvIndexData.textContent = `UV Index is: ${day2UVIndex}`; 
 
-    let chanceOfSnowData = document.getElementById('input-forecast-day2-snow-chance');
+    let humidityData = document.getElementById('input-forecast-day2-humidity');
 
-    chanceOfSnowData.textContent = `Chance of Snow: ${day2ChanceOfSnow}%`;
+    humidityData.textContent = `Humidity Levels: ${day2Humidity}%`;
+
+    let windData = document.getElementById('input-forecast-day-2-wind'); 
+
+    windData.textContent = `Wind Speed: ${day2WindSpeed} mph`;
 
 } 
 
@@ -480,9 +500,11 @@ async function addWeatherForecast3(weather) {
 
     let day3UVIndex = forecastData3.forecast.forecastday[2].day.uv;
 
-    let day3ChanceOfSnow = forecastData3.forecast.forecastday[2].day.daily_chance_of_snow;
+    let day3Humidity = forecastData3.forecast.forecastday[2].day.avghumidity;
 
-    console.log(day3ChanceOfSnow);
+    let day3Wind = forecastData3.forecast.forecastday[2].day.maxwind_mph;
+
+    console.log(day3Wind);
 
     let dateData = document.getElementById('input-forecast-day3-data-date');
 
@@ -504,9 +526,13 @@ async function addWeatherForecast3(weather) {
 
     uvIndexData.textContent = `UV Index is: ${day3UVIndex}`; 
 
-    let chanceOfSnowData = document.getElementById('input-forecast-day3-snow-chance');
+    let humidity = document.getElementById('input-forecast-day3-humidity');
 
-    chanceOfSnowData.textContent = `Chance of Snow: ${day3ChanceOfSnow}%`;
+    humidity.textContent = `Humidity Levels: ${day3Humidity}%`;
+
+    let wind = document.getElementById('input-forecast-day-3-wind');
+
+    wind.textContent = `Wind Speed: ${day3Wind} mph`;
 
 }
 
