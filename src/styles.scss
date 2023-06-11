@@ -1,9 +1,120 @@
 $titleColor: white; 
+$headerColor: black;
+$h1HeaderColor: white;
+$h1FontSize: 2.8rem;
+
+@mixin headerContainerStyles() { 
+  background-color: $headerColor;
+  text-align: center;
+  height: 12vh;
+  gap: 1em; 
+} 
+
+@mixin forecastCards() { 
+  height: 45vh;
+    width: 25vw;
+    background-color: black;
+    opacity: 0.7;
+    border-radius: 10%;
+    text-align: center;
+    color: white; 
+    font-weight: bold;
+}
 
 .h1-header-styles { 
   color: $titleColor; 
 } 
 
 * { 
-  font-family:'Courier New', Courier, monospace
+  font-family:'Courier New', Courier, monospace;
+  box-sizing: border-box;
+  padding: 0; 
+  margin: 0;
+} 
+
+body { 
+  background-color: lightgrey;;
+  background: url(./earth-background.jpg);
+  background-size: cover;
+}  
+
+.header-container { 
+  @include headerContainerStyles;
+} 
+
+.h1-header-styles { 
+  color: $h1HeaderColor; 
+  font-size: $h1FontSize;
+  font-weight: bold;
+} 
+
+// .search-bar-elements-container { 
+//   display: flex;
+//   justify-content: flex-end;
+//   gap: 1em; 
+  
+// } 
+
+.search-bar-elements-container { 
+
+  display: flex;
+  justify-content: flex-end;
+  gap: 1em; 
+
+  input { 
+    font-size: 1rem;
+  } 
+
+  button { 
+    font-size: 1rem;
+    background-color: white;
+    color: black; 
+    border: 2px solid black;
+    font-weight: bold;
+  }
+
+} 
+
+#current-weather-data { 
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bolder;
+  color: white; 
+
+  h3 { 
+    font-size: 2rem;
+    text-decoration: underline;
+  }
 }
+
+#current-weather-container { 
+  display: flex;
+  justify-content: center;
+  height: 40vh;
+  color: white;
+} 
+
+#forecast-3-day-title { 
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-decoration: underline;
+  margin-top: 0.5em;
+  color: white;
+}  
+
+#forecast-day-1-card, 
+#forecast-day-2-card, 
+#forecast-day-3-card { 
+  @include forecastCards;
+}  
+
+
+#forecast-days-container { 
+  display: flex;
+  justify-content: center;
+  gap: 2em; 
+  margin-top: 0.5em;
+  font-size: 1.1rem;
+}
+

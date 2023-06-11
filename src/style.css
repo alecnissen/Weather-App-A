@@ -2,41 +2,42 @@
     background-color: ;
 } */
 
-* { 
+/* * { 
     box-sizing: border-box;
     padding: 0; 
     margin: 0;
-} 
+}  */
 
-body { 
-    /* background-color: rgb(177, 172, 172); */
+/* body { 
     background-color: lightgrey;;
     background: url(./earth-background.jpg);
     background-size: cover;
-}
+} */
 
-.header-container { 
+/* .header-container { 
   background-color: black;
   text-align: center;
   height: 12vh;
   gap: 1em; 
 
-} 
+}  */
 
-.h1-header-styles { 
+/* .h1-header-styles { 
     color: white; 
     font-size: 2.8rem;
     font-weight: bold;
-}
+} */
 
-.search-bar-elements-container { 
+/* .search-bar-elements-container { 
     display: flex;
     justify-content: flex-end;
     gap: 1em; 
     
-} 
+}  */
 
-.search-bar-elements-container > input { 
+
+
+/* .search-bar-elements-container > input { 
     font-size: 1rem;
 } 
 
@@ -46,64 +47,57 @@ body {
     color: black; 
     border: 2px solid black;
     font-weight: bold;
-} 
+}  */
 
-#current-weather-data > h3{ 
+/* #current-weather-data > h3{ 
     font-size: 2rem;
     text-decoration: underline;
-}  
+}   */
 
-#current-weather-data { 
+/* #current-weather-data { 
     text-align: center;
     font-size: 1.2rem;
     font-weight: bolder;
     color: white;
-}
+} */
 
-#current-weather-container { 
+/* #current-weather-container { 
     display: flex;
     justify-content: center;
     height: 40vh;
-    /* margin-top: 2em; */
     color: white;
-    /* height: 285px;
-    width: 285px; */
-    /* background-color: rgb(177, 172, 172); */
-} 
+}  */
 
-#forecast-3-day-title { 
+/* #forecast-3-day-title { 
     text-align: center;
     font-size: 1.3rem;
     font-weight: bold;
     text-decoration: underline;
     margin-top: 0.5em;
     color: white;
-}
+} */
 
 
-#forecast-day-1-card, 
+/* #forecast-day-1-card, 
 #forecast-day-2-card, 
 #forecast-day-3-card { 
-    /* width: 250px; 
-    height: 250px; */
     height: 45vh;
     width: 25vw;
-    /* background-color: rgb(177, 172, 172); */
     background-color: black;
     opacity: 0.7;
     border-radius: 10%;
     text-align: center;
     color: white; 
     font-weight: bold;
-} 
+}  */
 
-#forecast-days-container { 
+/* #forecast-days-container { 
     display: flex;
     justify-content: center;
     gap: 2em; 
     margin-top: 0.5em;
     font-size: 1.1rem;
-}
+} */
 
 
 /* #forecast-container { 
