@@ -59,7 +59,6 @@ let storedWeatherData
 
 async function fetchData(input) { 
 
-
     let cityData = input; 
     
     console.log('The data passed in is: ' + cityData);
@@ -69,6 +68,8 @@ async function fetchData(input) {
     const jsonData = await getData.json();
     
     let currentWeatherData = jsonData;
+
+    console.log(currentWeatherData);
     
     storedWeatherData = currentWeatherData; 
 
